@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local development settings
+.env
+
+# Django-generated files
+*.sqlite3
+*.pyc
+*.pyo
+
+# Static files
+/staticfiles/
+
+# Media files
+/media/
+
+# macOS-specific
+.DS_Store
+
+# Visual Studio Code specific files
+.vscode/
+
+# PyCharm specific files
+.idea/
+*.iml
+
+# Editors
+*.sublime-workspace
+*.sublime-project
+*.vscode/
+*.idea/
+
+# Temporary files
+*.bak
+*.swp
+*~
+.venv
+venv
+media

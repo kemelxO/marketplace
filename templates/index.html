@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <title>Ads</title>
+</head>
+<body>
+    <header>
+        <nav id="nav">
+            <button onclick="loadAds(), showSection('adsSection')">Объявления</button>
+            <button onclick="openModal('loginModal')" id="loginButton">Вход</button>
+            <button onclick="showSection('registerSection')" id="registerButton">Регистрация</button>
+            <button onclick="loadModeratorAds(), showSection('moderatorSection')" id="moderatorButton" style="display: none;">Модерация</button>
+            <button onclick="openModal('createAdsFormContent')" id="createAdButton" style="display: none;">Создать Объявление</button>
+            <button onclick="loadCheckProfile()" id="profileButton" style="display: none;">Профиль</button>
+            <button onclick="logout()" id="logoutButton" style="display: none;">Выход</button>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div id="adsSection" class="section">
+                <div id="category-filter-container">
+                    <h3>Фильтр по категориям</h3>
+                    <select id="category-filter">
+                        <option value="">Все категории</option>
+                    </select>
+                </div>
+                <div id="ads-container"></div>
+            </div>
+
+            <div id="adDetailSection" class="section">
+                <div id="ad-details"></div>
+            </div>
+
+            <div id="moderatorSection" class="section">
+                <h2>Модерация</h2>
+                <div id="moderator-ads-container"></div>
+            </div>
+
+            <div id="moderatorDetailSection" class="section">
+                <div id="moderator-ad-details"></div>
+            </div>
+
+            <div id="profileSection" class="section">
+                <h2>Профиль</h2>
+                <div id="user-profile"></div>
+                <h2>Ваши объявления</h2>
+                <div id="user-ads"></div>
+            </div>
+
+            <div id="editAdSection" class="section">
+                <h2>Редактирование Объявления</h2>
+                <form onsubmit="editAd(event)" id="edit-ad-form">
+                    <input type="text" name="title" placeholder="Название">
+                    <textarea name="description" placeholder="Описание"></textarea>
+                    <input type="number" name="price" placeholder="Цена">
+                    <select name="category_id" id="category-select-edit"></select>
+                    <input type="file" name="photo" placeholder="Фото">
+                    <button type="submit">Сохранить изменения</button>
+                </form>
+            </div>
+
+            <div id="registerSection" class="section">
+                <form onsubmit="register(event)">
+                    <input type="text" id="registerUsername" placeholder="Имя пользователя" required>
+                    <input type="password" id="registerPassword" placeholder="Пароль" required>
+                    <input type="password" id="registerPassword2" placeholder="Подтверждение пароля" required>
+                    <input type="email" id="registerEmail" placeholder="Email" required>
+                    <input type="text" id="registerFirstName" placeholder="Имя" required>
+                    <input type="text" id="registerLastName" placeholder="Фамилия" required>
+                    <input type="text" id="registerPhoneNumber" placeholder="Номер телефона" required>
+                    <button type="submit">Зарегистрироваться</button>
+                </form>                
+            </div>
+
+            <div id="createAdsFormContent" class="modal">
+                <div class="modal-content">
+                    <h2>Создать объявление</h2>
+                    <span class="modal-close" onclick="closeModal('createAdsFormContent')">&times;</span>
+                    <form onsubmit="createAdsForm(event)" id="create-ad-form" >
+                        <input type="text" name="title" placeholder="Заголовок">
+                        <textarea name="description" placeholder="Описание"></textarea>
+                        <select name="category_id" id="category-select"></select>
+                        <input type="file" name="photo">
+                        <input type="text" name="price" placeholder="Цена">
+                        <button type="submit">Создать</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="profileEditModal" class="modal">
+                <div class="modal-content">
+                    <h2>Редактирование профиля</h2>
+                    <span class="modal-close" onclick="closeModal('profileEditModal')">&times;</span>
+                    <form onsubmit="editProfileform(event)" id="edit-profile-form">
+                        <input type="text" name="user.first_name" placeholder="Имя">
+                        <input type="text" name="user.last_name" placeholder="Фамилия">
+                        <input type="text" name="user.email" placeholder="Email">
+                        <input type="text" name="phone_number" placeholder="Номер телефона">
+                        <button type="submit">Сохранить изменения</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div id="loginModal" class="modal">
+                <div class="modal-content">
+                    <h2>Вход</h2>
+                    <span class="modal-close" onclick="closeModal('loginModal')">&times;</span>
+                    <form onsubmit="login(event)">
+                        <input type="text" id="loginUsername" placeholder="Имя пользователя" required>
+                        <input type="password" id="loginPassword" placeholder="Пароль" required>
+                        <button type="submit">Войти</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        <p>Numquam est consectetur sit libero quasi architecto exercitationem debitis ad nobis ullam explicabo magnam,</p>
+        <p>vitae harum quidem voluptatibus porro facere quisquam nemo!</p>
+    </footer>
+    <script src="static/js/modalWindow.js"></script>
+    <script src="static/js/script.js"></script>
+    <script src="static/js/moderator.js"></script>
+    <script src="static/js/editAd.js"></script>
+    <script src="static/js/createAdsForm.js"></script>
+    <script src="static/js/loginLogout.js"></script>
+    <script src="static/js/register.js"></script>
+    <script src="static/js/profile.js"></script>
+</body>
+</html>
